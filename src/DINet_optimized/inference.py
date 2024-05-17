@@ -25,11 +25,6 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Create an instances of the Wav2VecFeatureExtractor and Wav2vecDS classes
-feature_extractor = Wav2VecFeatureExtractor()
-audio_mapping = Wav2vecDS()
-
-
 # Frames extraction took 29.91 sec
 def extract_frames_from_video(video_path, save_dir):
     videoCapture = cv2.VideoCapture(video_path)
@@ -58,13 +53,16 @@ if __name__ == "__main__":
     start_process = default_timer()
     # load config
     opt = DINetInferenceOptions().parse_args()
+    
     if not os.path.exists(opt.source_video_path):
         raise ValueError("wrong video path : {}".format(opt.source_video_path))
     if not os.path.exists(opt.source_openface_landmark_path):
         raise ValueError(
             "wrong openface stats path : {}".format(opt.source_openface_landmark_path)
         )
-
+    # Create an instances of the Wav2VecFeatureExtractor and Wav2vecDS classes
+    feature_extractor = Wav2VecFeatureExtractor()
+    audio_mapping = Wav2vecDS(opt.Wav2vecDS_model_path)
     # extract frames from source video
     logging.info("extracting frames from video: %s", opt.source_video_path)
     start_time = time.time()
