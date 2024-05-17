@@ -26,7 +26,7 @@ class Wav2vecDS(nn.Module):
         super(Wav2vecDS, self).__init__()
         self.input_dim = 29
         self.hidden_dim = 512
-        self.pretrained_model = torch.load("./asserts/wav2vecDS.pt")
+        self.pretrained_model = torch.load("/datasets/dinet_optimized_asserts/asserts/wav2vecDS.pt")
 
     # define the mapping function
     def mapping(self, array):
