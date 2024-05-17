@@ -251,4 +251,8 @@ class DINetInferenceOptions:
             type=str,
             help="path of generated videos",
         )
+        self.parser.add_argument(
+            "--Wav2vecDS_model_path", type=str, default="/datasets/dinet_optimized_asserts/asserts/wav2vecDS.pt", 
+            help="Pre-trained model path for Wav2vecDS")
         return self.parser.parse_args()
+    
