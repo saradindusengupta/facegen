@@ -132,5 +132,4 @@ dmypy.json
 .github/templates/*
 
 # data
-/data/*
-/src/DINet/asserts/*
+/artifacts/*
