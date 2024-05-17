@@ -95,7 +95,7 @@ def crop_face_according_openfaceLM(
             os.makedirs(crop_face_video_dir)
         print("cropping face from video: {} ...".format(video_name))
         landmark_openface_data = load_landmark_openface(landmark_openface_path).astype(
-            np.int
+            int
         )
         frame_dir = os.path.join(video_frame_dir, video_name)
         if not os.path.exists(frame_dir):
