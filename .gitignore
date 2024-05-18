@@ -132,4 +132,5 @@ dmypy.json
 .github/templates/*
 
 # data
-/artifacts/*
+/artifacts/asserts/*
+/artifacts/inferenced_data/*.mp4
